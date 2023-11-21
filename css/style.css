@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{font-family: 'Raleway', sans-serif;}
+
+/*Head*/
+    /* navbar */
+
+    nav{
+        background-color: rgba(0, 0, 0, 1);
+        display: flex;
+        justify-content: space-around;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        
+        animation: navbar-scroll linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 93px;
+    }
+    nav .logo{
+        width: 180px;
+    }
+    nav > ul {list-style: none; display: flex; justify-content: space-around;}
+    nav > ul > li > a {
+        display: block;
+        text-decoration: none;
+        color: #ffffff;
+        padding: 30px 10px;
+
+        transition: 0.3s ease-in-out;
+
+        animation: li-scroll linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 93px;
+    }
+    nav > ul > li a:hover{
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .burger {
+        width: 30px;
+      }
+      
+      .burger:before,
+      .burger:after,
+      .burger div {
+        background: #fff;
+        content: "";
+        display: block;
+        height: 3px;
+        border-radius: 3px;
+        margin: 3px 0;
+        transition: 0.5s;
+      }
+      .burger:hover:before {
+        transform: translateY(6px) rotate(135deg);
+      }
+      .burger:hover:after {
+        transform: translateY(-6px) rotate(-135deg);
+      }
+      .burger:hover div {
+        transform: scale(0);
+      }
+
+    @media (width > 940px){
+        .burger{display: none;}
+    }
+    @media (width < 940px){
+        .burger{display: block;}
+        nav > ul{display: none;}
+        nav{padding: 20px 0;}
+    }
+
+    @keyframes navbar-scroll {
+        to{
+            background-color:  rgba(0, 0, 0, .6);
+        }
+    }
+    @keyframes li-scroll {
+        to{
+            padding: 20px 10px;
+        }
+    }
+
+    @keyframes banner-scroll {
+        to{
+            height: 200px;
+        }
+    }
+    @keyframes titulo-scroll {
+        to{
+            opacity: 0;
+        }
+    }
+
+    /* navbar */
+/*Head*/
+
+/* Index */
+.banner-home{
+    width: 100%;
+    height: 500px;
+    background-image:url(../img/foto-header.jpg);
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    position: relative;
+
+    animation: banner-scroll linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 93px;
+
+}
+
+.banner-home > div{
+    animation: titulo-scroll linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 93px;
+}
+
+.banner-home h1{
+    background-image:url(../img/foto-header.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0);
+    font-size: 120px;
+    -webkit-text-stroke: 3px #ffffff;
+    background-attachment: fixed;
+}
+.banner-home h2{
+    color: #fff;
+    text-align: center;
+}
+.contenedor{
+    max-width: 1420px;
+    margin: 0 auto;
+    padding:  90px 20px;
+}
+.container { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(400px, 1fr));
+    gap: 10px 10px;
+}
+
+.contenedor h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:flex-end;
+    padding: 10px;
+}
+.card .int-card{
+    margin-top: 160px;
+    padding: 20px;
+    width: 100%;
+    background: rgba(0, 0, 0, .4);
+    color: #fff;
+}
+
+.card.modelo .int-card{
+    margin: 0;
+}
+
+.card.modelo .hover-modelos{
+    overflow: hidden;
+}
+
+.card.modelo .hover-modelos img{
+    transition: 0.5s ease-in-out;
+}
+
+.card.modelo:hover .hover-modelos img{
+    transform: rotate(-17deg) scale(1.4) ;
+}
+
+.card .int-card .titulo-card{
+    font-size: 22px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.card .int-card .card-boton{
+    margin-top: 10px;
+    font-size: 14px;
+    display: block;
+    padding: 10px 20px;
+    background-color: #E53517;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    text-decoration: none;
+    width: 150px;
+    transition: 0.3s ease-in-out;
+    &:hover{
+        background-color: #000000;
+    }
+}
+.card img{max-width: 100%;}
+.card.principal{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    background-image: url(../img/repuestos.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+.card.modelos{
+    background-image: url(../img/modelos.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.card.servicios{
+    background-image: url(../img/servicios.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.card.escuela{
+    background-image: url(../img/escuela.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.card.contacto{
+    background-image: url(../img/contacto.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.texto-video{
+    background-color: #000000;
+    padding: 90px 20px;
+}
+.int-texto-video{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px, 1fr));
+    color: #fff;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1420px;
+    margin: 0 auto;
+}
+.int-texto-video .logo{
+    width: 200px;
+}
+.texto-video .texto{padding: 90px 20px;}
+.texto-video .texto h2{margin-bottom: 20px;}
+.texto-video .texto p{line-height: 1.4;}
+.texto-video .video video{width: 100%;}
+footer{text-align: center; padding: 30px; border-top: solid 3px #000;}
+footer .logo{width: 200px;}
+
+@media (width < 1048px){
+   .texto{
+    text-align: center;
+   }
+}
+
+@media (width < 680px){
+    .banner-home h1{
+        font-size: 60px;
+    }
+    .container, .int-texto-video{ 
+        grid-template-columns: 1fr;
+    }
+}
